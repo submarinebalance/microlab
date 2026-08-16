@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MicroLab - Universal Phone Repair Manuals</title>
+    <style>
+        :root {
+            --bg-color: #0d1117;
+            --panel-bg: #161b22;
+            --text-color: #c9d1d9;
+            --accent-color: #58a6ff;
+            --border-color: #30363d;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding: 25px;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        h1 { margin: 0; color: #fff; font-size: 2.2rem; }
+        .credit { color: var(--accent-color); font-weight: bold; margin-top: 5px; font-size: 1.1rem; }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .model-btn {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.2s;
+        }
+        .model-btn:hover, .model-btn.active {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+        }
+        
+        .guide-panel {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            display: none;
+        }
+        .guide-panel.active { display: block; }
+        h2 { color: #fff; border-bottom: 2px solid var(--border-color); padding-bottom: 10px; margin-top: 0; }
+        h3 { color: var(--accent-color); }
+        ol { padding-left: 20px; }
+        li { margin-bottom: 10px; }
+        
+        .brand-title {
+            color: #fff;
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MICROLAB</h1>
+        <div class="credit">Made by Naveeb Sharfaz</div>
+        <p>Select any individual phone model below for its complete, unshortened repair manual.</p>
+    </header>
+
+    <!-- MODEL SELECTION GRID: SAMSUNG -->
+    <div class="brand-title">Samsung Galaxy S & Note Series</div>
+    <div class="nav-grid">
+        <button class="model-btn" onclick="showGuide('s8', event)">Galaxy S8 / S8+</button>
+        <button class="model-btn" onclick="showGuide('s9', event)">Galaxy S9 / S9+</button>
+        <button class="model-btn" onclick="showGuide('s10', event)">Galaxy S10 Series</button>
+        <button class="model-btn" onclick="showGuide('note10', event)">Galaxy Note 10 / 10+</button>
+        <button class="model-btn" onclick="showGuide('s20', event)">Galaxy S20 Series</button>
+        <button class="model-btn" onclick="showGuide('note20', event)">Galaxy Note 20 Series</button>
+        <button class="model-btn" onclick="showGuide('s21', event)">Galaxy S21 Series</button>
+        <button class="model-btn" onclick="showGuide('s22', event)">Galaxy S22 Series</button>
+        <button class="model-btn" onclick="showGuide('s23', event)">Galaxy S23 Series</button>
+        <button class="model-btn" onclick="showGuide('s24', event)">Galaxy S24 Series</button>
+        <button class="model-btn" onclick="showGuide('s25', event)">Galaxy S25 Series</button>
+        <button class="model-btn" onclick="showGuide('s26', event)">Galaxy S26 Series</button>
+    </div>
+
+    <div class="brand-title">Samsung Galaxy A & Z Fold/Flip Series</div>
+    <div class="nav-grid">
+        <button class="model-btn" onclick="showGuide('galaxya10_30', event)">Galaxy A10 - A30</button>
+        <button class="model-btn" onclick="showGuide('galaxya50_70', event)">Galaxy A50 / A70 / A51 / A71</button>
+        <button class="model-btn" onclick="showGuide('galaxya32_72', event)">Galaxy A32 / A52 / A72</button>
+        <button class="model-btn" onclick="showGuide('galaxya53_73', event)">Galaxy A53 / A73</button>
+        <button class="model-btn" onclick="showGuide('galaxya54_55', event)">Galaxy A54 / A55</button>
+        <button class="model-btn" onclick="showGuide('galaxya_latest', event)">Galaxy A16 / A36 / A56</button>
+        <button class="model-btn" onclick="showGuide('galaxyzfold', event)">Galaxy Z Fold Series</button>
+        <button class="model-btn" onclick="showGuide('galaxyzflip', event)">Galaxy Z Flip Series</button>
+    </div>
+
+    <!-- MODEL SELECTION GRID: OPPO -->
+    <div class="brand-title">Oppo Find Flagship Series</div>
+    <div class="nav-grid">
+        <button class="model-btn" onclick="showGuide('oppofind3', event)">Oppo Find X3 / X3 Pro</button>
+        <button class="model-btn" onclick="showGuide('oppofind5', event)">Oppo Find X5 Pro</button>
+        <button class="model-btn" onclick="showGuide('oppofind6', event)">Oppo Find X6 Pro</button>
+        <button class="model-btn" onclick="showGuide('oppofind7', event)">Oppo Find X7 Ultra</button>
+        <button class="model-btn" onclick="showGuide('oppofind8', event)">Oppo Find X8 Pro</button>
+    </div>
+
+    <div class="brand-title">Oppo Reno & A Series</div>
+    <div class="nav-grid">
+        <button class="model-btn" onclick="showGuide('opporeno_early', event)">Oppo Reno 2 / 3 / 4</button>
+        <button class="model-btn" onclick="showGuide('opporeno_mid', event)">Oppo Reno 5 / 6 / 7</button>
+        <button class="model-btn" onclick="showGuide('opporeno_late', event)">Oppo Reno 8 / 10 / 11 / 12</button>
+        <button class="model-btn" onclick="showGuide('oppoa_series', event)">Oppo A Series (A16 - A78)</button>
+        <button class="model-btn" onclick="showGuide('oppoa_latest', event)">Oppo A Series (A3 / A5 / A60+)</button>
+    </div>
+
+    <br>
+
+    <!-- GUIDE PANELS -->
+    <div id="s8" class="guide-panel active">
+        <h2>Samsung Galaxy S8 / S8+ Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Digital heat gun, metal opening blade, plastic cards, T7000 adhesive, Phillips #00.</p>
+        <h3>1. Curved OLED Screen & Frame Assembly Swap</h3>
+        <ol>
+            <li>Power off phone and remove SIM/MicroSD tray.</li>
+            <li>Apply heat to curved back glass panel for 3 minutes. Insert razor blade at bottom seam and slice perimeter adhesive.</li>
+            <li>Lift back glass carefully (note: fingerprint sensor flex cable is attached to back glass; disconnect immediately before pulling away).</li>
+            <li>Unscrew upper motherboard cover and loudspeaker box. Disconnect battery connector.</li>
+            <li>Transfer motherboard, cameras, and battery into new replacement frame assembly. Seal back glass with T7000 adhesive.</li>
+        </ol>
+    </div>
+
+    <div id="s9" class="guide-panel">
+        <h2>Samsung Galaxy S9 / S9+ Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, razor cards, Phillips #00, B7000 adhesive.</p>
+        <h3>1. Curved Display & Back Glass Replacement</h3>
+        <ol>
+            <li>Power off and remove SIM tray. Heat back glass perimeter.</li>
+            <li>Slice adhesive using opening cards. Lift back cover carefully, disconnecting rear fingerprint scanner ribbon cable.</li>
+            <li>Unscrew upper and lower frame shields. Disconnect battery terminal.</li>
+            <li>Transfer internal components to new frame assembly. Apply fresh adhesive to back glass and clamp for 45 minutes.</li>
+        </ol>
+    </div>
+
+    <div id="s10" class="guide-panel">
+        <h2>Samsung Galaxy S10 / S10+ / S10e Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, plastic cards, ultrasonic fingerprint calibration tools.</p>
+        <h3>1. AMOLED Screen & Ultrasonic Fingerprint Replacement</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray, heat back glass edges.</li>
+            <li>Remove back glass cover. Unscrew upper motherboard shield and loudspeaker module. Disconnect battery.</li>
+            <li>Transfer components into new screen assembly. Ensure ultrasonic fingerprint sensor glass under new screen is immaculate and free of dust.</li>
+            <li>Seal back cover with B7000 adhesive.</li>
+        </ol>
+    </div>
+
+    <div id="note10" class="guide-panel">
+        <h2>Samsung Galaxy Note 10 / Note 10+ Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, opening picks, Phillips #00, S-Pen dock inspection tools.</p>
+        <h3>1. AMOLED Display & S-Pen Silo Maintenance</h3>
+        <ol>
+            <li>Power off device, remove SIM tray and S-Pen stylus. Apply heat to back glass panel.</li>
+            <li>Detach back cover. Unscrew upper motherboard shield and lower speaker module. Disconnect battery.</li>
+            <li>Transfer internal components into new screen assembly. Ensure S-Pen internal guidance silo is clear of debris before final seal.</li>
+        </ol>
+    </div>
+
+    <div id="s20" class="guide-panel">
+        <h2>Samsung Galaxy S20 Series Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, opening cards, Phillips #00 screwdriver.</p>
+        <h3>1. Screen & Frame Assembly Replacement</h3>
+        <ol>
+            <li>Power down device, remove SIM tray, apply heat to back glass.</li>
+            <li>Remove back glass cover. Unscrew upper motherboard shield and NFC/wireless charging coil module. Disconnect battery.</li>
+            <li>Transfer logic board, cameras, and battery into new replacement frame assembly. Reassemble and seal back cover.</li>
+        </ol>
+    </div>
+
+    <div id="note20" class="guide-panel">
+        <h2>Samsung Galaxy Note 20 / Note 20 Ultra Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat station, opening picks, Phillips screwdrivers.</p>
+        <h3>1. Display & Frame Assembly Replacement</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray and S-Pen. Heat back cover edges.</li>
+            <li>Remove back glass panel. Unscrew upper motherboard shield and loudspeaker. Disconnect battery.</li>
+            <li>Transfer internal motherboard and hardware modules to new replacement frame. Seal back cover with structural adhesive.</li>
+        </ol>
+    </div>
+
+    <div id="s21" class="guide-panel">
+        <h2>Samsung Galaxy S21 Series Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, plastic cards, Phillips #00.</p>
+        <h3>1. Display & Frame Replacement</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray. Apply heat to plastic/glass composite back cover.</li>
+            <li>Remove back panel. Unscrew upper shield covering logic board and lower speaker box. Disconnect battery.</li>
+            <li>Transfer all internal hardware modules into new display/frame assembly. Apply structural adhesive and clamp.</li>
+        </ol>
+    </div>
+
+    <div id="s22" class="guide-panel">
+        <h2>Samsung Galaxy S22 Series Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, opening picks, Phillips #00, B7000 adhesive.</p>
+        <h3>1. AMOLED Screen & Chassis Replacement</h3>
+        <ol>
+            <li>Power down device and remove SIM tray. Apply heat around back glass edges.</li>
+            <li>Remove back glass cover. Unscrew upper motherboard cover and lower speaker module. Disconnect battery terminal.</li>
+            <li>Transfer motherboard, cameras, and battery into new replacement frame assembly. Seal back cover.</li>
+        </ol>
+    </div>
+
+    <div id="s23" class="guide-panel">
+        <h2>Samsung Galaxy S23 Series Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Digital heat station, opening cards, Phillips drivers.</p>
+        <h3>1. Screen Assembly Replacement</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray, heat back glass perimeter.</li>
+            <li>Slice adhesive and remove back glass cover. Unscrew upper and lower frame shields. Disconnect battery.</li>
+            <li>Transfer internal modules to new screen assembly frame. Seal with fresh adhesive.</li>
+        </ol>
+    </div>
+
+    <div id="s24" class="guide-panel">
+        <h2>Samsung Galaxy S24 Series Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, precision screwdrivers, flat opening tools.</p>
+        <h3>1. Flat AMOLED Display & Frame Replacement</h3>
+        <ol>
+            <li>Power down unit, remove SIM tray, apply heat to back glass.</li>
+            <li>Remove back glass cover. Unscrew upper motherboard shield and wireless charging coil. Disconnect battery.</li>
+            <li>Transfer internal components into new frame assembly. Reassemble and seal back panel.</li>
+        </ol>
+    </div>
+
+    <div id="s25" class="guide-panel">
+        <h2>Samsung Galaxy S25 Series Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Precision heating pad, opening picks, Phillips drivers.</p>
+        <h3>1. Advanced Screen Assembly Replacement</h3>
+        <ol>
+            <li>Power off device and remove SIM tray. Heat back glass on thermal pad at 80°C.</li>
+            <li>Remove back cover. Unscrew upper shield and disconnect battery connector.</li>
+            <li>Transfer primary logic board, camera modules, and battery into new replacement frame housing. Seal and clamp.</li>
+        </ol>
+    </div>
+
+    <div id="s26" class="guide-panel">
+        <h2>Samsung Galaxy S26 Series Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat station, precision screwdrivers, structural adhesive.</p>
+        <h3>1. Flagship AMOLED Screen Replacement</h3>
+        <ol>
+            <li>Power off device, remove SIM tray, apply controlled heat to back glass perimeter.</li>
+            <li>Detach back cover, unscrew upper motherboard shield, and disconnect battery terminal.</li>
+            <li>Transfer internal hardware to new screen/frame assembly. Apply fresh waterproof adhesive and clamp securely.</li>
+        </ol>
+    </div>
+
+    <div id="galaxya10_30" class="guide-panel">
+        <h2>Samsung Galaxy A10 through A30 Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, plastic opening pick, Phillips #00 screwdriver.</p>
+        <h3>1. TFT / AMOLED Screen & Frame Replacement</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray. Heat perimeter of plastic back housing.</li>
+            <li>Pry back housing away from middle frame using plastic opening picks.</li>
+            <li>Disconnect battery connector immediately. Unscrew lower loudspeaker box to expose interconnection ribbon cable.</li>
+            <li>Disconnect display flex, heat front bezel, separate screen, clean frame, and install new replacement display.</li>
+        </ol>
+    </div>
+
+    <div id="galaxya50_70" class="guide-panel">
+        <h2>Samsung Galaxy A50 / A70 / A51 / A71 Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, plastic cards, Phillips #00, B7000 adhesive.</p>
+        <h3>1. Screen & In-Display Fingerprint Replacement</h3>
+        <ol>
+            <li>Power off device and remove SIM tray. Apply heat to plastic/glass back cover.</li>
+            <li>Detach back cover, unscrew upper motherboard cover and lower loudspeaker box. Disconnect battery.</li>
+            <li>Transfer logic board and sub-board into new screen assembly frame. Ensure optical fingerprint module glass is spotless. Reassemble.</li>
+        </ol>
+    </div>
+
+    <div id="galaxya32_72" class="guide-panel">
+        <h2>Samsung Galaxy A32 / A52 / A72 Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, opening picks, Phillips #00.</p>
+        <h3>1. AMOLED Display Replacement & IP67 Seal Restoration</h3>
+        <ol>
+            <li>Power down phone, remove SIM tray, apply heat to back cover.</li>
+            <li>Remove back cover, disconnect battery, unscrew upper motherboard shield and speaker box.</li>
+            <li>Transfer internal components into new screen assembly frame. Clean old gasket and apply fresh structural waterproof adhesive before closing.</li>
+        </ol>
+    </div>
+
+    <div id="galaxya53_73" class="guide-panel">
+        <h2>Samsung Galaxy A53 / A73 Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, plastic opening picks, Phillips drivers.</p>
+        <h3>1. Screen & Sub-Board Replacement</h3>
+        <ol>
+            <li>Power off device, remove SIM tray, apply heat to back cover.</li>
+            <li>Remove back cover, disconnect battery terminal, and unscrew lower speaker box.</li>
+            <li>Transfer logic board and battery into new replacement frame assembly. Reassemble and seal back cover.</li>
+        </ol>
+    </div>
+
+    <div id="galaxya54_55" class="guide-panel">
+        <h2>Samsung Galaxy A54 / A55 Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Thermal heating pad, opening picks, Phillips #00, B7000 adhesive.</p>
+        <h3>1. Glass-Back Mid-Range Flagship Repair</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray, place on thermal heating pad at 75°C for 3 minutes.</li>
+            <li>Detach glass back cover using suction handle and opening card.</li>
+            <li>Unscrew upper motherboard cover and loudspeaker box. Disconnect battery terminal.</li>
+            <li>Transfer internal hardware to new screen assembly frame. Apply fresh adhesive and clamp for 45 minutes.</li>
+        </ol>
+    </div>
+
+    <div id="galaxya_latest" class="guide-panel">
+        <h2>Samsung Galaxy A16 / A36 / A56 Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Precision heating station, opening cards, Phillips screwdrivers.</p>
+        <h3>1. Modern A-Series Screen & Battery Maintenance</h3>
+        <ol>
+            <li>Power off device, remove SIM tray, apply controlled heat to back cover perimeter.</li>
+            <li>Detach back panel, disconnect battery connector immediately.</li>
+            <li>Transfer motherboard and internal components to new display frame assembly, or lift battery pull-tabs to replace battery pack. Seal with fresh adhesive gasket.</li>
+        </ol>
+    </div>
+
+    <div id="galaxyzfold" class="guide-panel">
+        <h2>Samsung Galaxy Z Fold Series Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Specialized hinge jigs, thermal heat station, microscopic screwdrivers, calibration software.</p>
+        <h3>1. Inner Foldable OLED Screen & Outer Display Replacement</h3>
+        <ol>
+            <li>Power down foldable device completely. Remove outer SIM tray and hinge cover brackets.</li>
+            <li>Apply controlled heat to outer cover screen and inner ultra-thin glass (UTG) bezel edges using specialized thermal fixtures.</li>
+            <li>Carefully disconnect dual-battery architecture and flexible ribbon cables bridging across the mechanical hinge.</li>
+            <li>Install replacement inner foldable screen assembly and recalibrate mechanical hinge synchronization sensors using Samsung diagnostic tools.</li>
+        </ol>
+    </div>
+
+    <div id="galaxyzflip" class="guide-panel">
+        <h2>Samsung Galaxy Z Flip Series Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Precision heat station, micro-screwdrivers, hinge alignment jigs.</p>
+        <h3>1. Foldable Clamshell Screen & Flex Cable Replacement</h3>
+        <ol>
+            <li>Power off device, remove SIM tray, and open clamshell fully.</li>
+            <li>Apply heat around outer cover glass and inner flexible OLED bezel. Disconnect battery power rails.</li>
+            <li>Unscrew hinge protective housing covers. Replace damaged flexible display panel, ensuring hinge brush and cable tracks are aligned correctly.</li>
+        </ol>
+    </div>
+
+    <div id="oppofind3" class="guide-panel">
+        <h2>Oppo Find X3 / X3 Pro Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, metal opening blade, plastic cards, T7000 adhesive.</p>
+        <h3>1. Seamless Curved Back Glass & Screen Replacement</h3>
+        <ol>
+            <li>Power off phone, remove SIM card tray. Apply heat to seamless curved back glass for 3 minutes.</li>
+            <li>Insert razor opening card at bottom seam, slice perimeter adhesive, and lift back cover.</li>
+            <li>Unscrew upper motherboard shield covering Snapdragon processor and camera array. Disconnect battery.</li>
+            <li>Disconnect display flex cables, transfer components into new screen assembly frame, and seal back cover.</li>
+        </ol>
+    </div>
+
+    <div id="oppofind5" class="guide-panel">
+        <h2>Oppo Find X5 Pro Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, ceramic-coated opening blade, plastic cards, isopropyl alcohol 99%.</p>
+        <h3>1. Ceramic / Glass Back Cover & Screen Replacement</h3>
+        <ol>
+            <li>Power down device and remove SIM card tray. Apply intense heat to curved ceramic or glass back cover for 3 minutes.</li>
+            <li>Insert razor opening card at bottom seam. Slice perimeter adhesive carefully. Lift back cover.</li>
+            <li>Unscrew upper motherboard shield and MariSilicon X / processor covers. Disconnect battery connector immediately.</li>
+            <li>Disconnect display ribbon cables. Transfer internal components into new frame assembly. Seal back cover with structural T7000 adhesive.</li>
+        </ol>
+    </div>
+
+    <div id="oppofind6" class="guide-panel">
+        <h2>Oppo Find X6 Pro Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Digital heat gun, suction cup, opening picks, Phillips #00, Hasselblad camera bracket tools.</p>
+        <h3>1. Hasselblad Camera Module & Screen Replacement</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray, apply heat around back cover perimeter.</li>
+            <li>Detach back glass/vegan leather cover carefully. Unscrew upper motherboard shield protecting Hasselblad camera array connectors. Disconnect battery terminal.</li>
+            <li>Disconnect primary display flex cable. Heat front glass edge, separate broken OLED panel from aluminum midframe, clean adhesive residue, apply fresh gasket, and secure replacement screen.</li>
+        </ol>
+    </div>
+
+    <div id="oppofind7" class="guide-panel">
+        <h2>Oppo Find X7 Ultra Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Thermal heating pad, precision drivers, dual-periscope camera handling tools.</p>
+        <h3>1. Dual-Periscope Flagship Screen Replacement</h3>
+        <ol>
+            <li>Power down device, remove SIM card tray, and place phone on heating pad at 75°C for 3 minutes.</li>
+            <li>Attach suction handle near bottom edge of back cover, lift gently, and insert thin opening card to release adhesive.</li>
+            <li>Unscrew upper logic board shield plate covering dual-periscope telephoto camera modules. Disconnect battery terminal immediately.</li>
+            <li>Disconnect display flex cables. Transfer internal hardware modules into new replacement frame housing. Apply OEM waterproof adhesive gasket ring before sealing back cover.</li>
+        </ol>
+    </div>
+
+    <div id="oppofind8" class="guide-panel">
+        <h2>Oppo Find X8 Pro Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Thermal separator, precision drivers, structural adhesive.</p>
+        <h3>1. Premium AMOLED Screen & Chassis Replacement</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray, apply controlled heat to back glass perimeter.</li>
+            <li>Detach back cover, unscrew upper motherboard shield, and disconnect battery terminal.</li>
+            <li>Transfer internal hardware to new screen/frame assembly. Apply fresh waterproof adhesive and clamp securely.</li>
+        </ol>
+    </div>
+
+    <div id="opporeno_early" class="guide-panel">
+        <h2>Oppo Reno 2 / Reno 3 / Reno 4 Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, plastic opening picks, popup camera inspection tools.</p>
+        <h3>1. AMOLED Display & Popup Mechanism Maintenance</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray, apply heat to back glass panel.</li>
+            <li>Remove back cover. Disconnect battery terminal. Unscrew upper motherboard shield.</li>
+            <li>For Reno 2/3 with motorized popup selfie camera: take care not to damage internal mechanical stepper motor ribbon when replacing display or front housing.</li>
+        </ol>
+    </div>
+
+    <div id="opporeno_mid" class="guide-panel">
+        <h2>Oppo Reno 5 / Reno 6 / Reno 7 Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, opening cards, Phillips #00 screwdriver.</p>
+        <h3>1. Screen & Charging Sub-Board Repair</h3>
+        <ol>
+            <li>Power off device and extract SIM card tray. Apply heat around rear composite battery cover.</li>
+            <li>Pry open back cover carefully using suction cup and plastic cards.</li>
+            <li>Unscrew upper motherboard shield and disconnect battery connector to isolate power across all internal rails.</li>
+            <li>Disconnect display flex cable. Separate damaged screen from middle housing, apply T7000 adhesive, and press new display assembly in place.</li>
+        </ol>
+    </div>
+
+    <div id="opporeno_late" class="guide-panel">
+        <h2>Oppo Reno 8 / 10 / 11 / 12 Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Thermal heating pad, precision drivers, B7000 adhesive.</p>
+        <h3>1. Modern Reno Curved/Flat Screen Replacement</h3>
+        <ol>
+            <li>Power off device, remove SIM tray, place on thermal pad at 75°C for 3 minutes.</li>
+            <li>Detach back glass cover, unscrew upper motherboard shield, and disconnect battery terminal.</li>
+            <li>Transfer internal hardware modules into new screen assembly frame. Clean residue, apply fresh adhesive, and clamp.</li>
+        </ol>
+    </div>
+
+    <div id="oppoa_series" class="guide-panel">
+        <h2>Oppo A Series (A16 through A78) Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Heat gun, plastic picks, Phillips #00.</p>
+        <h3>1. Budget Screen & Battery Replacement</h3>
+        <ol>
+            <li>Power off phone, remove SIM tray. Apply heat around plastic back housing frame.</li>
+            <li>Pry open back housing cover using plastic opening picks.</li>
+            <li>Disconnect battery connector immediately. Unscrew lower loudspeaker assembly to access charging port sub-board.</li>
+            <li>Disconnect display flex ribbon, separate screen, clean frame, and install new replacement display.</li>
+        </ol>
+    </div>
+
+    <div id="oppoa_latest" class="guide-panel">
+        <h2>Oppo A Series (A3 / A5 / A60 and Newer) Complete Repair Manual</h2>
+        <p><strong>Tools Required:</strong> Thermal heating station, opening cards, Phillips screwdrivers.</p>
+        <h3>1. Ruggedized A-Series Display & Charging Repair</h3>
+        <ol>
+            <li>Power off device, remove SIM tray, apply controlled heat to back cover perimeter.</li>
+            <li>Detach back panel, disconnect battery connector immediately.</li>
+            <li>Transfer motherboard and internal components to new display frame assembly, or replace modular USB-C sub-board. Seal with fresh adhesive gasket.</li>
+        </ol>
+    </div>
+
+    <script>
+        function showGuide(guideId, event) {
+            const panels = document.querySelectorAll('.guide-panel');
+            panels.forEach(panel => panel.classList.remove('active'));
+
+            const buttons = document.querySelectorAll('.model-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            const target = document.getElementById(guideId);
+            if (target) {
+                target.classList.add('active');
+            }
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+        }
+    </script>
+</body>
+</html>
